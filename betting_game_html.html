@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Click the button to demonstrate the prompt box.</p>
+
+<button onclick="myFunction()">Try it</button>
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+    var betAmount = prompt("Please enter your bet:");
+    if (betAmount != null) {
+        document.getElementById("demo").innerHTML =
+        "You bet the following amount: " + betAmount + "! How are you today?";
+    }
+}
+</script>
+
+</body>
+</html>
