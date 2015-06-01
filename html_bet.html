@@ -6,33 +6,35 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script src="file:///Users/aardax/lighthouse/w6d1_2/betting_game_folder/application.js"></script>
-  <script src="/path/to/jquery.cookie.js"></script>
+
 </head>
 
 <body>
 
   <p>
     Bet amount:
-    <input type = "number" id="betAmount" value="7">
+    <input type = "number" id="betAmount" value="1">
   </p>
 
   <p>
     Bet Guess number:
-    <input type = "number" id="userGuess" value="7">
+    <input type = "number" id="userGuess" value="1">
   </p>
 
 
   <p>Click the button to demonstrate the prompt box.</p>
 
- 
+  
 
 
   <p> Your remaining money: </p>
-  <p id="results"></p>
+  <p id="user_money_left"></p>
   <p> hi </p>
+  <p id="last_round_result"></p>
+  
 
 
-   <button onclick="myFunction()">Try it</button>
-
+  <button onclick="myFunction()">Make Bet</button>
+  <button onclick="resetMoney()">Reset Money</button>
 </body>
 </html>

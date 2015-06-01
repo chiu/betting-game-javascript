@@ -2,18 +2,23 @@
 
 function myFunction() {
   console.log("i am dragofdfdn");
-    userMoney = 100;
-   $.cookie('userMoney', userMoney ); 
+    var userMoney = parseInt(localStorage.getItem('userMoney'))
+     // userMoney = userMoney.val();
+    if (userMoney == undefined){
+      localStorage.setItem('userMoney', 100);
 
+    }
+ 
 // var randomNumber = 1;
-var randomNumber = Math.floor((Math.random() * 1) + 1);
+var randomNumber = Math.floor((Math.random() * 4) + 1);
 
 
 
 
-var betAmount = +$("#betAmount").val();
+var betAmount = $("#betAmount").val();
 // betAmount = 33;
 console.log("Bet amount:" + betAmount);
+// console.log(betAmount.class());
 
 if (betAmount != null) {
 
@@ -24,7 +29,7 @@ if (betAmount != null) {
 
 
 
-var userGuess = +$("#userGuess").val();
+var userGuess = $("#userGuess").val();
 console.log("guess amount:" + userGuess);
 
 if (userGuess != null) {
@@ -33,23 +38,32 @@ if (userGuess != null) {
 }
 
 if (userGuess == randomNumber){
-  alert("You won the bet.");
-  userMoney = userMoney + betAmount * 2;
+  $("#last_round_result").text("You won the bet.");
+ 
+  console.log("betamount type" + typeof(betAmount).toString());
+  console.log("betamount type" + typeof(betAmount*2).toString());
+  console.log("betamount type" + typeof(parseInt(betAmount)).toString());
+
+  userMoney += parseInt(+betAmount * +2);
 } else if(userGuess == randomNumber + 1 || userGuess == randomNumber -1){
-  alert("You were off by 1: keep your bet");
+   $("#last_round_result").text("You were off by 1: keep your bet");
   userMoney = userMoney 
 }  else {
-  alert("You lost.");
+   $("#last_round_result").text("You lost.");
   userMoney = userMoney - betAmount;
 }
+localStorage.setItem('userMoney', userMoney);
 
 
-
-alert("Your remaining money is:" + userMoney);
-$("#results").text(userMoney.toString());
+// alert("Your remaining money is:" + userMoney);
+$("#user_money_left").text(userMoney.toString());
 
 }
 
-
+function resetMoney() {
+localStorage.setItem('userMoney', 100);
+var userMoney = localStorage.getItem('userMoney')
+$("#user_money_left").text(userMoney.toString());
+}
 
 $(document).ready( myFunction );
