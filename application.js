@@ -20,12 +20,17 @@ var betAmount = $("#betAmount").val();
 console.log("Bet amount:" + betAmount);
 // console.log(betAmount.class());
 
-if (betAmount != null) {
+if (betAmount != null ) {
 
 
-  "You bet the following amount: " + betAmount + "! How are you today?";
+  $("#bet_feedback").text("You bet the following amount: " + betAmount + "! How are you today?");
 }
 
+if(betAmount < 5 || betAmount > 10){
+
+betAmount = 6
+
+}
 
 
 
@@ -34,7 +39,8 @@ console.log("guess amount:" + userGuess);
 
 if (userGuess != null) {
 
-  "You guessed the following number: " + userGuess + "! How are you today?";
+  
+  $("#guess_feedback").text("You guessed the following number: " + userGuess + "! How are you today?");
 }
 
 if (userGuess == randomNumber){
