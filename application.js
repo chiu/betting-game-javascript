@@ -1,23 +1,32 @@
 
 
 function myFunction() {
-  console.log("i am dragon");
-  userMoney = 100;
-// var randomNumber = 1;
-var randomNumber = Math.floor((Math.random() * 3) + 1);
+  console.log("i am dragofdfdn");
+    userMoney = 100;
+   $.cookie('userMoney', userMoney ); 
 
-var betAmount = $("#bet");
-console.log(betAmount);
+// var randomNumber = 1;
+var randomNumber = Math.floor((Math.random() * 1) + 1);
+
+
+
+
+var betAmount = +$("#betAmount").val();
+// betAmount = 33;
+console.log("Bet amount:" + betAmount);
+
 if (betAmount != null) {
 
 
   "You bet the following amount: " + betAmount + "! How are you today?";
 }
 
-userMoney = userMoney - betAmount;
 
 
-var userGuess = $("userGuess");
+
+var userGuess = +$("#userGuess").val();
+console.log("guess amount:" + userGuess);
+
 if (userGuess != null) {
 
   "You guessed the following number: " + userGuess + "! How are you today?";
@@ -28,16 +37,16 @@ if (userGuess == randomNumber){
   userMoney = userMoney + betAmount * 2;
 } else if(userGuess == randomNumber + 1 || userGuess == randomNumber -1){
   alert("You were off by 1: keep your bet");
-  userMoney = userMoney + betAmount;
+  userMoney = userMoney 
 }  else {
   alert("You lost.");
-  userMoney = userMoney;
+  userMoney = userMoney - betAmount;
 }
 
 
 
 alert("Your remaining money is:" + userMoney);
-$("#results").text(34);
+$("#results").text(userMoney.toString());
 
 }
 
