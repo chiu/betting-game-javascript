@@ -1,13 +1,15 @@
 
 
 function myFunction() {
-
+  console.log("i am dragon");
   userMoney = 100;
 // var randomNumber = 1;
 var randomNumber = Math.floor((Math.random() * 3) + 1);
 
-var betAmount = $("#betAmount");
+var betAmount = $("#bet");
+console.log(betAmount);
 if (betAmount != null) {
+
 
   "You bet the following amount: " + betAmount + "! How are you today?";
 }
@@ -32,7 +34,13 @@ if (userGuess == randomNumber){
   userMoney = userMoney;
 }
 
+
+
 alert("Your remaining money is:" + userMoney);
-$("#results").text(userMoney.val());
+$("#results").text(34);
 
 }
+
+
+
+$(document).ready( myFunction );
