@@ -14,7 +14,7 @@ $(document).ready(function(){
 
 
     function generateRandomNumber(){
-     randomNumber = Math.floor((Math.random() * 5) + 1);
+     randomNumber = Math.floor((Math.random() * 3) + 1);
      console.log("random number:" + randomNumber + typeof(randomNumber));
      $("#last_round_random").text(randomNumber.toString());
    }
