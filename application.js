@@ -10,20 +10,7 @@ $(document).ready(function(){
 
    function betMoney() {
     console.log("yo wassup")
-    // var userMoney = parseInt(localStorage.getItem('userMoney'))
-    // var betAmount = parseInt(localStorage.getItem('betAmount'))
-    // var userGuess = parseInt(localStorage.getItem('userGuess'))
 
-    console.log("userMoney:");
-    console.log(userMoney);
-    console.log(typeof(userMoney));
-    console.log("betAmount:");
-    console.log(betAmount);
-    console.log(typeof(betAmount));
-    console.log("userguess:");
-    console.log(userGuess);
-    console.log(typeof(userGuess));
-    
 
     if (!userMoney){
       userMoney = 100;
@@ -36,13 +23,24 @@ $(document).ready(function(){
    }
 
    if (!userGuess ){
-     userGuess = 5;
+     userGuess = 1;
      $("#guess_feedback").text(userGuess.toString());
    }
 
 
-   var randomNumber = Math.floor((Math.random() * 3) + 1);
+   console.log("userMoney:");
+   console.log(userMoney);
+   console.log(typeof(userMoney));
+   console.log("betAmount:");
+   console.log(betAmount);
+   console.log(typeof(betAmount));
+   console.log("userguess:");
+   console.log(userGuess);
+   console.log(typeof(userGuess));
+
+   var randomNumber = Math.floor((Math.random() * 10) + 1);
    console.log("random number:" + randomNumber);
+   $("#last_round_random").text(randomNumber.toString());
 
 
    if (userGuess === randomNumber){
@@ -61,7 +59,6 @@ $(document).ready(function(){
 
 function resetMoney() {
  userMoney = 100;
-
  $("#user_money_left").text(userMoney.toString());
 }
 
@@ -69,24 +66,33 @@ function resetMoney() {
 function updateBetAmount(){
   console.log("inside bet amount")
   betAmount = +$("#betAmount").val();
-  if(betAmount < 5 || betAmount > 10){
-    betAmount = 5
-    $("#bet_feedback").text("You over the amount, set to default of 5");
+
+  if(betAmount < 5 ){
+    betAmount = 5;
+    $("#bet_feedback").text("You under the minimum, set to default of 5");
+  } else if (betAmount > 10) {
+    betAmount = 10;
+    $("#bet_feedback").text("You are over the maximum bet, set to maximum of 10.")
   } else if (betAmount !== null ) {
     $("#bet_feedback").text("You bet the following amount: " + betAmount + "! How are you today?");
   }
-    // localStorage.setItem('betAmount', betAmount);
-    console.log("Bet amount:" + betAmount);
-  }
+  console.log("Bet amount:" + betAmount);
+}
 
-  function updateGuess(){
-    userGuess = $("#userGuess").val();
-    console.log("guess amount:" + userGuess);
+function updateGuess(){
+  userGuess = $("#userGuess").val();
+  console.log("guess amount:" + userGuess);
 
-    if (userGuess !== null) {
-      $("#guess_feedback").text("You guessed the following number: " + userGuess);
-    }
+  if(userGuess < 0) {
+    userGuess = 0; 
+    $("#guess_feedback").text("You are under the minimum, set to minimum of 0.")
+  } else if (userGuess > 10 ) {
+    userGuess = 10;
+    $("#guess_feedback").text("You are over the maximum, set to maximum of 10.")
+  } else if (userGuess !== null) {
+    $("#guess_feedback").text("You guessed the following number: " + userGuess);
   }
+}
 
 
 // $(document).ready( myFunction );
