@@ -76,6 +76,7 @@ $(document).ready(function(){
 function updateBetAmount(){
   console.log("inside bet amount")
   betAmount = +$("#betAmount").val();
+  console.log(betAmount, BET_MINIMUM);
   if(betAmount < BET_MINIMUM ){
     betAmount = BET_MINIMUM;
     $("#betAmount").val(BET_MINIMUM);
@@ -95,13 +96,14 @@ function updateGuess(){
 
 
   console.log("guess value, type: " + userGuess + typeof(userGuess));
+  console.log(userGuess, GUESS_MINIMUM);
   if(userGuess < GUESS_MINIMUM) {
     userGuess = GUESS_MINIMUM; 
-    $("#guess_feedback").val(GUESS_MINIMUM);
+    $("#userGuess").val(GUESS_MINIMUM);
     $("#guess_feedback").text("You are under the minimum, set to minimum of " + GUESS_MINIMUM)
   } else if (userGuess > GUESS_MAXIMUM ) {
     userGuess = GUESS_MAXIMUM;
-    $("#guess_feedback").val(GUESS_MAXIMUM);
+    $("#userGuess").val(GUESS_MAXIMUM);
     $("#guess_feedback").text("You are over the maximum, set to maximum of " +GUESS_MAXIMUM)
   } else if (userGuess !== null) {
     $("#guess_feedback").text("You guessed the following number: " + userGuess);
