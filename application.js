@@ -19,12 +19,12 @@ $(document).ready(function(){
 
     if (!betAmount ){
      betAmount = 5;
-     $("#bet_feedback").text(betAmount.toString());
+     $("#bet_feedback").text("Set to default of: " + betAmount.toString());
    }
 
    if (!userGuess ){
      userGuess = 1;
-     $("#guess_feedback").text(userGuess.toString());
+     $("#guess_feedback").text("Set to default of: " + userGuess.toString());
    }
 
 
@@ -40,6 +40,7 @@ $(document).ready(function(){
 
    var randomNumber = Math.floor((Math.random() * 10) + 1);
    console.log("random number:" + randomNumber);
+   console.log(typeof(randomNumber));
    $("#last_round_random").text(randomNumber.toString());
 
 
